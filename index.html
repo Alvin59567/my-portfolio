@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的技能清單</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f5f5f5;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+            max-width: 300px;
+        }
+
+        .skill {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #dcecff;
+            padding: 12px 20px;
+            border-radius: 8px;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 6px 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>我的技能清單</h1>
+
+    <div id="skillList" class="skill-list"></div>
+
+    <input id="skillInput" type="text" placeholder="輸入新技能">
+    <button id="addButton">新增技能</button>
+
+    <script>
+        const skills = ["HTML", "CSS", "JavaScript", "PHP"];
+
+        const skillList = document.querySelector("#skillList");
+        const skillInput = document.querySelector("#skillInput");
+        const addButton = document.querySelector("#addButton");
+
+        // 顯示技能清單
+        function renderSkills() {
+            skillList.innerHTML = "";
+
+            skills.forEach(function(skill, index) {
+                const skillElement = document.createElement("div");
+                const skillName = document.createElement("span");
+                const deleteButton = document.createElement("button");
+
+                skillName.textContent = skill;
+                deleteButton.textContent = "刪除";
+
+                deleteButton.addEventListener("click", function() {
+                    skills.splice(index, 1);
+                    renderSkills();
+                });
+
+                skillElement.appendChild(skillName);
+                skillElement.appendChild(deleteButton);
+                skillElement.className = "skill";
+
+                skillList.appendChild(skillElement);
+            });
+        }
+
+        // 新增技能
+        addButton.addEventListener("click", function() {
+            const newSkill = skillInput.value.trim();
+
+            if (newSkill !== "") {
+                skills.push(newSkill);
+                renderSkills();
+                skillInput.value = "";
+            }
+        });
+
+        renderSkills();
+    </script>
+
+</body>
+</html>
