@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鐘點費管理系統 | Project</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            background: #080d18;
+            color: #e5e7eb;
+            line-height: 1.8;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 88%);
+            margin: auto;
+        }
+
+        header {
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            padding: 22px 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #d6b46a;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .back-link {
+            color: #b8c1d1;
+            transition: .3s;
+        }
+
+        .back-link:hover {
+            color: #d6b46a;
+        }
+
+        .hero {
+            padding: 100px 0 75px;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .tag {
+            display: inline-block;
+            color: #d6b46a;
+            border: 1px solid rgba(214, 180, 106, .4);
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 22px;
+        }
+
+        h1 {
+            font-size: clamp(32px, 5vw, 52px);
+            line-height: 1.3;
+            margin-bottom: 22px;
+        }
+
+        h1 span {
+            color: #d6b46a;
+        }
+
+        .hero p {
+            color: #aab4c5;
+            max-width: 720px;
+            font-size: 16px;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .tech {
+            background: #141e30;
+            border: 1px solid #26354d;
+            padding: 7px 16px;
+            border-radius: 8px;
+            color: #d6b46a;
+            font-size: 14px;
+        }
+
+        section {
+            padding: 75px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .section-title {
+            font-size: 27px;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            color: #8995a8;
+            margin-bottom: 35px;
+        }
+
+        .content-card {
+            background: #111a2a;
+            border: 1px solid #25334a;
+            border-radius: 14px;
+            padding: 28px;
+        }
+
+        .content-card p {
+            color: #b8c1d1;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: #111a2a;
+            border: 1px solid #25334a;
+            border-radius: 14px;
+            padding: 25px;
+        }
+
+        .feature-card h3 {
+            color: #d6b46a;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #aab4c5;
+            font-size: 14px;
+        }
+
+        .permission-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #111a2a;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .permission-table th,
+        .permission-table td {
+            padding: 17px;
+            text-align: center;
+            border-bottom: 1px solid #25334a;
+        }
+
+        .permission-table th {
+            color: #d6b46a;
+            background: #172337;
+        }
+
+        .permission-table td:first-child {
+            text-align: left;
+        }
+
+        .yes {
+            color: #80d6a0;
+        }
+
+        .no {
+            color: #8792a4;
+        }
+
+        .learning-box {
+            border-left: 3px solid #d6b46a;
+            padding: 5px 0 5px 24px;
+        }
+
+        .learning-box p {
+            color: #b8c1d1;
+            margin-bottom: 12px;
+        }
+
+        .bottom-link {
+            text-align: center;
+            padding: 70px 0;
+        }
+
+        .home-button {
+            display: inline-block;
+            background: #d6b46a;
+            color: #080d18;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .home-button:hover {
+            background: #f0d18a;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #657186;
+            font-size: 13px;
+        }
+
+        @media (max-width: 650px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 70px 0 55px;
+            }
+
+            .permission-table th,
+            .permission-table td {
+                padding: 12px 8px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav">
+            <div class="logo">MY PORTFOLIO</div>
+            <a href="index.html" class="back-link">← 返回首頁</a>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="container hero">
+            <span class="tag">INDIVIDUAL PROJECT · ACADEMIC WORK</span>
+
+            <h1>鐘點費<span>管理系統</span></h1>
+
+            <p>
+                大學課程期末個人實作，使用 PHP 與 MySQL 建立鐘點費管理系統，
+                練習資料庫串接、使用者登入驗證、角色權限管理及基本資料維護功能。
+            </p>
+
+            <div class="tech-list">
+                <span class="tech">PHP</span>
+                <span class="tech">MySQL</span>
+                <span class="tech">HTML</span>
+                <span class="tech">XAMPP</span>
+            </div>
+        </div>
+
+        <!-- System Preview -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">System Preview</h2>
+                <p class="section-subtitle">系統介面與操作流程示意</p>
+
+                <div class="content-card">
+                    <img src="images/portfolio/hourly-pay-demo.png" alt="鐘點費管理系統登入、管理介面與操作流程示意圖" style="
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    border-radius: 12px;
+                ">
+
+                    <p style="
+                margin-top: 16px;
+                color: #8995a8;
+                font-size: 13px;
+                line-height: 1.8;
+            ">
+                        本圖為依據課程實作功能整理之系統設計示意圖，
+                        用於呈現系統架構與操作概念，非原始系統操作截圖。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-title">01 / Project Overview</h2>
+                <p class="section-subtitle">專案概述</p>
+
+                <div class="content-card">
+                    <p>
+                        本專案為大學課程期末實作，由個人獨立完成。
+                        以 PHP 作為後端開發語言，搭配 MySQL 資料庫，
+                        建立教授鐘點費管理系統。
+                    </p>
+                    <br>
+                    <p>
+                        系統區分專職教授與兼任教授，依不同類別處理鐘點費資料，
+                        並透過管理者與一般使用者的角色區分，
+                        實現不同的資料操作權限。
+                    </p>
+                    <br>
+                    <p>
+                        本專案以練習 PHP 後端開發及資料庫應用為主要目的，
+                        著重於基本資料管理與使用者權限概念。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-title">02 / Core Features</h2>
+                <p class="section-subtitle">核心功能</p>
+
+                <div class="feature-grid">
+
+                    <div class="feature-card">
+                        <h3>01. 使用者登入</h3>
+                        <p>
+                            建立帳號登入機制，依照使用者身分提供相對應的操作權限。
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>02. 角色權限管理</h3>
+                        <p>
+                            區分管理者與一般使用者，管理者可維護資料，
+                            一般使用者僅能瀏覽資料。
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>03. 鐘點費資料管理</h3>
+                        <p>
+                            透過資料庫進行資料新增、查詢、修改及刪除等基本操作。
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>04. 教授類別區分</h3>
+                        <p>
+                            區分專職教授與兼任教授，依照不同類別處理鐘點費資料。
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-title">03 / Access Control</h2>
+                <p class="section-subtitle">使用者角色與操作權限</p>
+
+                <table class="permission-table">
+                    <thead>
+                        <tr>
+                            <th>操作功能</th>
+                            <th>管理者</th>
+                            <th>一般使用者</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>瀏覽資料</td>
+                            <td class="yes">✓</td>
+                            <td class="yes">✓</td>
+                        </tr>
+                        <tr>
+                            <td>新增資料</td>
+                            <td class="yes">✓</td>
+                            <td class="no">—</td>
+                        </tr>
+                        <tr>
+                            <td>編輯資料</td>
+                            <td class="yes">✓</td>
+                            <td class="no">—</td>
+                        </tr>
+                        <tr>
+                            <td>刪除資料</td>
+                            <td class="yes">✓</td>
+                            <td class="no">—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-title">04 / Technical Skills</h2>
+                <p class="section-subtitle">技術應用與學習成果</p>
+
+                <div class="learning-box">
+                    <p><strong>PHP 後端程式設計</strong></p>
+                    <p>運用 PHP 處理使用者操作與系統資料管理。</p>
+
+                    <p><strong>MySQL 資料庫串接</strong></p>
+                    <p>透過 PHP 與 MySQL 進行資料讀取及維護。</p>
+
+                    <p><strong>CRUD 基本操作</strong></p>
+                    <p>實作資料新增、查詢、修改與刪除功能。</p>
+
+                    <p><strong>角色權限管理</strong></p>
+                    <p>依照登入角色區分可執行的資料操作。</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="container bottom-link">
+            <a href="index.html" class="home-button">返回作品集首頁 →</a>
+        </div>
+
+    </main>
+
+    <footer>
+        © 2026 My Portfolio. All Rights Reserved.
+    </footer>
+
+</body>
+
+</html>

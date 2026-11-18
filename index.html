@@ -514,6 +514,22 @@
                 padding: 30px 20px;
             }
         }
+
+        .project-video {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            max-width: 260px;
+            margin: 15px auto;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .project-video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 
@@ -657,31 +673,31 @@
 
 
                     <!-- 鐘點費管理系統 -->
-                    <article class="project-card">
-                        <div class="project-number">PROJECT 01</div>
-                        <h3>鐘點費管理系統</h3>
+                    <a href="hourly-pay.html" class="project-card">
+                            <div class="project-number">PROJECT 01</div>
+                            <h3>鐘點費管理系統</h3>
 
-                        <p>
-                            使用 PHP 與 MySQL 建立資料管理系統，
-                            處理鐘點費相關資料及系統功能。
-                        </p>
+                            <p>
+                                使用 PHP 與 MySQL 建立資料管理系統，
+                                處理鐘點費相關資料及系統功能。
+                            </p>
 
-                        <ul>
-                            <li>使用 PHP 撰寫後端程式邏輯</li>
-                            <li>使用 MySQL 儲存及查詢資料</li>
-                            <li>透過系統功能處理相關資料流程</li>
-                        </ul>
+                            <ul>
+                                <li>使用 PHP 撰寫後端程式邏輯</li>
+                                <li>使用 MySQL 儲存及查詢資料</li>
+                                <li>透過系統功能處理相關資料流程</li>
+                            </ul>
 
-                        <div class="project-tags">
-                            <span>PHP</span>
-                            <span>MySQL</span>
-                            <span>資料庫應用</span>
-                        </div>
+                            <div class="project-tags">
+                                <span>PHP</span>
+                                <span>MySQL</span>
+                                <span>資料庫應用</span>
+                            </div>
 
-                        <div class="project-status">
-                            大學專題實作
-                        </div>
-                    </article>
+                            <div class="project-status">
+                                大學專題實作
+                            </div>
+                    </a>
                     <!-- 共享書籍平台 -->
                     <article class="project-card">
                         <div class="project-number">PROJECT 02</div>
@@ -746,6 +762,46 @@
                             大學專題實作
                         </div>
                     </article>
+
+
+                    <!-- AI 音樂與影音創作 -->
+                    <article class="project-card">
+                        <div class="project-number">PROJECT 04</div>
+                        <h3>AI 音樂與影音創作</h3>
+
+                        <img class="project-image" src="images/ai-creation/home.png" alt="AI影音頻道實作">
+
+
+                        <p>
+                            運用生成式 AI 工具進行音樂創作與影音製作，
+                            從主題企劃、音樂生成、視覺素材設計到影片整合，
+                            完成個人影音創作並發布於 YouTube 頻道。
+                        </p>
+
+                        <ul>
+                            <li>使用 Suno AI 生成原創 LoFi 音樂</li>
+                            <li>運用 AI 工具製作影片視覺素材</li>
+                            <li>整合音樂、圖片與影片內容</li>
+                            <li>規劃系列主題並經營 YouTube 頻道</li>
+                        </ul>
+
+                        <div class="project-tags">
+                            <span>ChatGPT</span>
+                            <span>Suno AI</span>
+                            <span>AI Image Generation</span>
+                            <span>Video Production</span>
+                        </div>
+
+                        <div class="project-status">
+                            個人創作・持續更新
+                        </div>
+
+                        <a href="https://www.youtube.com/@Aivin-w3q" target="_blank" rel="noopener noreferrer"
+                            class="project-link">
+                            前往 YouTube 頻道 →
+                        </a>
+                    </article>
+
 
                 </div>
             </div>
