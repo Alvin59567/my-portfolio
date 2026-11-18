@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alvin | 個人作品集</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, "Microsoft JhengHei", sans-serif;
+            background: #f3f5f9;
+            color: #1e293b;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .profile {
+            background: #172554;
+            color: white;
+            padding: 45px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+
+        .profile h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .profile p {
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+        }
+
+        .section h2 {
+            margin-top: 0;
+            color: #172554;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .skill-tag {
+            background: #e0e7ff;
+            color: #1e40af;
+            padding: 9px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 10px;
+        }
+
+        input {
+            flex: 1;
+            min-width: 0;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        button {
+            padding: 11px 18px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 13px;
+            margin-top: 10px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+
+        .skill-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .skill-actions button {
+            padding: 7px 12px;
+            font-size: 13px;
+        }
+
+        .delete-button {
+            background: #dc2626;
+        }
+
+        .delete-button:hover {
+            background: #b91c1c;
+        }
+
+        .empty-message {
+            color: #94a3b8;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 13px;
+            padding: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px auto;
+            }
+
+            .profile {
+                padding: 28px;
+                background-color: #334155;
+            }
+
+            .profile h1 {
+                font-size: 26px;
+            }
+
+            .input-area {
+                flex-direction: column;
+            }
+
+            .input-area button {
+                width: 100%;
+            }
+        }
+
+        .project-card {
+            padding: 20px;
+            margin-top: 15px;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            transition: 0.3S;
+        }
+
+        .project-card:hover {
+            transform: translate(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: #1e293b;
+        }
+
+        .project-tech {
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .project-tags span {
+            padding: 6px 12px;
+            background-color: #dbeafe;
+            color: #1d4ed8;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <section class="profile">
+            <h1>你好，我是 Alvin</h1>
+            <h3>資訊管理背景・持續學習中的開發者</h3>
+            <p>
+                具備資訊管理背景與跨領域學習經驗，
+                曾接觸 PHP、MySQL、JavaScript 及 R 語言。
+                喜歡研究新技術，並透過實作解決問題。
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>技術能力</h2>
+
+            <div class="skill-tags">
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">R</span>
+            </div>
+        </section>
+        <section class="section">
+            <h2>專案作品</h2>
+
+            <div class="project-card">
+                <h3>鐘點費管理系統</h3>
+
+                <p>
+                    使用 PHP 與 MySQL 開發的資料管理系統，
+                    協助處理鐘點費相關資料。
+                </p>
+
+                <h4>專案內容</h4>
+                <ul>
+                    <li>設計資料庫，管理系統所需資料</li>
+                    <li>使用 PHP 處理後端資料與系統功能</li>
+                    <li>透過 MySQL 儲存及查詢資料</li>
+                </ul>
+
+                <div class="project-tags">
+                    <span>PHP</span>
+                    <span>MySQL</span>
+                    <span>資料庫設計</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>心臟疾病預測及預防管理系統</h3>
+
+                <p>
+                    結合機器學習與前端網頁技術，
+                    建立心臟疾病風險預測及預防管理系統，
+                    協助使用者了解預測結果。
+                </p>
+
+                <h4>專案內容</h4>
+                <ul>
+                    <li>使用 R 語言進行資料分析與機器學習建模</li>
+                    <li>使用 Vue.js 開發及修改前端介面</li>
+                    <li>撰寫 JavaScript 邏輯與互動功能</li>
+                    <li>透過 API 進行前後端資料串接</li>
+                </ul>
+
+                <div class="project-tags">
+                    <span>R</span>
+                    <span>Vue.js</span>
+                    <span>JavaScript</span>
+                    <span>機器學習</span>
+                    <span>資料庫應用</span>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>技能管理系統</h2>
+            <p>這是我的 JavaScript 練習作品，可以新增、編輯及刪除技能。</p>
+
+            <div class="input-area">
+                <input id="skillInput" type="text" placeholder="輸入技能名稱">
+                <button id="addButton">新增技能</button>
+            </div>
+
+            <div id="skillList"></div>
+        </section>
+
+        <div class="footer">
+            © 2026 Alvin | Personal Portfolio
+        </div>
+
+    </div>
+
+    <script>
+        const savedSkills = localStorage.getItem("mySkills");
+
+        const skills = savedSkills
+            ? JSON.parse(savedSkills)
+            : ["HTML", "CSS", "JavaScript", "PHP"];
+
+        const skillInput = document.querySelector("#skillInput");
+        const addButton = document.querySelector("#addButton");
+        const skillList = document.querySelector("#skillList");
+
+        function renderSkills() {
+            skillList.innerHTML = "";
+
+            if (skills.length === 0) {
+                const emptyMessage = document.createElement("p");
+                emptyMessage.className = "empty-message";
+                emptyMessage.textContent = "目前沒有技能資料，請新增你的第一項技能！";
+                skillList.appendChild(emptyMessage);
+            } else {
+                skills.forEach(function (skill, index) {
+                    const item = document.createElement("div");
+                    item.className = "skill-item";
+
+                    const name = document.createElement("span");
+                    name.textContent = skill;
+
+                    const actions = document.createElement("div");
+                    actions.className = "skill-actions";
+
+                    const editButton = document.createElement("button");
+                    editButton.textContent = "編輯";
+
+                    editButton.addEventListener("click", function () {
+                        const newSkill = prompt("請輸入新的技能名稱", skill);
+
+                        if (newSkill !== null && newSkill.trim() !== "") {
+                            skills[index] = newSkill.trim();
+                            renderSkills();
+                        }
+                    });
+
+                    const deleteButton = document.createElement("button");
+                    deleteButton.textContent = "刪除";
+                    deleteButton.className = "delete-button";
+
+                    deleteButton.addEventListener("click", function () {
+                        skills.splice(index, 1);
+                        renderSkills();
+                    });
+
+                    actions.appendChild(editButton);
+                    actions.appendChild(deleteButton);
+
+                    item.appendChild(name);
+                    item.appendChild(actions);
+
+                    skillList.appendChild(item);
+                });
+            }
+
+            localStorage.setItem("mySkills", JSON.stringify(skills));
+        }
+
+        addButton.addEventListener("click", function () {
+            const newSkill = skillInput.value.trim();
+
+            if (newSkill !== "") {
+                skills.push(newSkill);
+                skillInput.value = "";
+                renderSkills();
+            }
+        });
+
+        renderSkills();
+    </script>
+
+</body>
+
+</html>
