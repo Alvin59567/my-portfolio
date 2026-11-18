@@ -178,6 +178,7 @@
             letter-spacing: 2px;
         }
 
+
         /* 通用區塊 */
 
         .section {
@@ -270,6 +271,42 @@
         .skill-box p {
             color: var(--text);
             font-size: 14px;
+            margin: 0;
+        }
+
+        /* 專業證照 */
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .certification-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .certification-card img {
+            width: 100%;
+            max-width: 420px;
+            height: 240px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .certification-card h3 {
+            color: var(--white);
+            font-size: 17px;
+            margin: 15px 0 5px;
+        }
+
+        .certification-card p {
+            color: var(--muted);
+            font-size: 13px;
             margin: 0;
         }
 
@@ -490,29 +527,33 @@
 
             .about-grid,
             .skills-grid,
-            .projects-grid {
+            .projects-grid,
+            .certifications-grid {
                 grid-template-columns: 1fr;
             }
 
-            .input-area {
-                flex-direction: column;
-            }
+            emplate-columns: 1fr;
+        }
 
-            .input-area button {
-                width: 100%;
-            }
+        .input-area {
+            flex-direction: column;
+        }
 
-            .skill-item {
-                align-items: flex-start;
-            }
+        .input-area button {
+            width: 100%;
+        }
 
-            .skill-actions {
-                flex-shrink: 0;
-            }
+        .skill-item {
+            align-items: flex-start;
+        }
 
-            .contact-box {
-                padding: 30px 20px;
-            }
+        .skill-actions {
+            flex-shrink: 0;
+        }
+
+        .contact-box {
+            padding: 30px 20px;
+        }
         }
 
         .project-video {
@@ -543,6 +584,7 @@
             <nav>
                 <a href="#about">關於我</a>
                 <a href="#skills">技術能力</a>
+                <a href="#certifications">專業證照</a>
                 <a href="#projects">專案作品</a>
                 <a href="#skill-manager">技能管理</a>
                 <a href="#contact">聯絡我</a>
@@ -552,21 +594,32 @@
 
     <main>
 
+
         <!-- 首頁主視覺 -->
         <section class="hero">
             <div class="hero-content">
                 <p class="hero-label">INFORMATION MANAGEMENT · DEVELOPER</p>
 
                 <h1>
-                    把想法轉化為<br>
-                    <span>實際可用的系統。</span>
+                    三年業務主管<br>
+                    <span>回歸工程師</span>
                 </h1>
 
-                <p class="hero-description">
-                    具備資訊管理背景與跨領域學習經驗，
-                    接觸程式開發、資料庫應用及機器學習。
-                    喜歡研究新技術，並透過實作解決問題。
-                </p>
+                <div class="hero-description">
+                    <p>
+                        畢業於輔仁大學資訊管理學系，大學期間便進入南山人壽工作，
+                        從業務工作快速晉升至管理職，並成為辦公室最年輕的主管。
+                        這段經歷讓我累積了團隊帶領、教育訓練、溝通協調與問題處理能力。
+                    </p>
+
+                    <p>
+                        現在，我選擇重新回到資訊領域。從整理過去的專案、
+                        重建開發環境，到持續練習程式與系統開發，
+                        我一步步重新累積技術能力。
+                        我相信，過去的管理經驗，加上主動學習與解決問題的能力，
+                        將成為自己走向工程師之路的重要優勢。
+                    </p>
+                </div>
 
                 <a href="#projects" class="hero-button">探索我的作品 →</a>
 
@@ -576,6 +629,7 @@
             </div>
         </section>
 
+
         <!-- 關於我 -->
         <section class="section" id="about">
             <div class="container">
@@ -584,30 +638,54 @@
                     <h2>關於我</h2>
                 </div>
 
+
                 <div class="about-grid">
                     <div class="about-text">
                         <p>
-                            我具備資訊管理學系背景，曾參與不同類型的資訊系統專題，
-                            涵蓋網站開發、資料庫管理及機器學習應用。
+                            我畢業於輔仁大學資訊管理學系，大學期間接觸過網站開發、
+                            資料庫及機器學習相關專案，使用過 PHP、MySQL、
+                            JavaScript、Vue.js 和 R 等技術。
                         </p>
 
                         <p>
-                            在重新整理過去的專案時，也實際接觸開發環境恢復、
-                            資料庫處理、程式問題排查及功能測試。
+                            大學期間，我便進入南山人壽工作。從業務工作開始，
+                            憑藉學習速度與工作表現快速晉升管理職，
+                            並成為辦公室最年輕的主管。
+                            這段經歷讓我累積了團隊管理、教育訓練、
+                            溝通協調及問題處理的實務經驗。
                         </p>
 
                         <p>
-                            我重視持續學習與實際應用，希望透過不斷累積技術能力，
-                            將資訊技術轉化為能解決實際問題的工具。
+                            現在，我希望將過去的資訊背景重新接起來。
+                            透過整理大學專案、恢復 PHP 與 MySQL 開發環境、
+                            排查程式問題及持續練習前端技術，
+                            一步步把過去學過的知識轉化為實際能力。
+                        </p>
+
+                        <p>
+                            我不會把自己定位成什麼都會的工程師，
+                            但我願意主動學習、理解問題並動手解決。
+                            對我來說，真正重要的不是一開始會多少，
+                            而是能不能持續學習並把事情做好。
                         </p>
                     </div>
 
                     <div class="about-highlight">
-                        <strong>Learn & Build</strong>
-                        持續學習不同技術，透過實作累積經驗，
-                        並在解決問題的過程中持續成長。
+                        <strong>Management Experience</strong>
+                        管理與溝通的職場歷練
+
+                        <br><br>
+
+                        <strong>Information Background</strong>
+                        資訊管理的學習基礎
+
+                        <br><br>
+
+                        <strong>Learning by Doing</strong>
+                        透過實作累積技術能力
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -615,14 +693,16 @@
         <section class="section section-alt" id="skills">
             <div class="container">
                 <div class="section-heading">
-                    <p>MY EXPERTISE</p>
+                    <p>TECHNICAL BACKGROUND</p>
                     <h2>技術能力</h2>
                     <div class="section-description">
-                        透過課程學習、專題實作及自主練習，持續累積技術經驗。
+                        從大學課程、專題開發到自主練習，接觸過不同的程式語言與開發工具。
+                        目前持續複習技術基礎，並透過實際操作重新累積開發經驗。
                     </div>
                 </div>
 
                 <div class="skills-grid">
+
                     <div class="skill-box">
                         <h3>Frontend</h3>
                         <p>HTML、CSS、JavaScript、Vue.js</p>
@@ -630,12 +710,12 @@
 
                     <div class="skill-box">
                         <h3>Backend</h3>
-                        <p>PHP、Node.js 基礎應用</p>
+                        <p>PHP、Node.js 基礎應用與程式邏輯</p>
                     </div>
 
                     <div class="skill-box">
                         <h3>Database</h3>
-                        <p>MySQL、資料表設計與 SQL 查詢</p>
+                        <p>MySQL、資料表設計、SQL 查詢與 CRUD 操作</p>
                     </div>
 
                     <div class="skill-box">
@@ -650,12 +730,35 @@
 
                     <div class="skill-box">
                         <h3>System Practice</h3>
-                        <p>XAMPP、本機環境設定、程式除錯</p>
+                        <p>XAMPP、本機開發環境設定、程式除錯與功能測試</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- 專業證照 -->
+        <section class="section" id="certifications">
+            <div class="container">
+                <div class="section-heading">
+                    <p>PROFESSIONAL CERTIFICATIONS</p>
+                    <h2>專業證照</h2>
+                </div>
+
+                <div class="certifications-grid">
+                    <div class="certification-card">
+                        <img src="images/portfolio/程式語言.jpg" alt="TQC+ 程式語言 Python 3 證照">
+                        <h3>程式語言 Python 3</h3>
+                        <p>TQC+ 專業認證</p>
+                    </div>
+
+                    <div class="certification-card">
+                        <img src="images/portfolio/網頁資料擷取與分析.jpg" alt="TQC+ 網頁資料擷取與分析 Python 3 證照">
+                        <h3>網頁資料擷取與分析 Python 3</h3>
+                        <p>TQC+ 專業認證</p>
                     </div>
                 </div>
             </div>
         </section>
-
         <!-- 專案作品 -->
         <section class="section" id="projects">
             <div class="container">
@@ -701,24 +804,26 @@
                         </div>
                     </a>
 
-                    <!-- 共享書籍平台 -->
-                    <article class="project-card">
-                        <div class="project-number">PROJECT 02</div>
-                        <h3>共享書籍平台 SA Book Sharing</h3>
 
-                        <img class="project-image" src="images/SA_Book-sharing/home.png" alt="共享書籍平台首頁畫面">
+                    <!-- 系統分析與實作：共享書籍平台 -->
+                    <a href="book-sharing.html" class="project-card">
+                        <div class="project-number">PROJECT 02</div>
+
+                        <h3>系統分析與實作（SA）－共享書籍平台</h3>
+
+                        <img class="project-image" src="images/SA_Book-sharing/home.png" alt="系統分析與實作共享書籍平台首頁">
 
                         <p>
-                            大學時期參與的團隊專題，以 PHP 與 MySQL
-                            建立共享書籍平台，提供會員管理、書籍上架、
+                            大學期間參與的團隊小專題，使用 PHP 與 MySQL
+                            開發共享書籍平台，提供會員管理、書籍上架、
                             書籍瀏覽及借閱預約等功能。
                         </p>
 
                         <ul>
-                            <li>重新恢復 PHP、MySQL 本機開發環境</li>
-                            <li>依照原始程式初步重建資料表</li>
-                            <li>排查 Session、資料查詢及預約流程問題</li>
-                            <li>重新測試網站主要功能</li>
+                            <li>參與網站功能規劃與系統實作</li>
+                            <li>使用 PHP 處理後端程式邏輯</li>
+                            <li>透過 MySQL 儲存及管理資料</li>
+                            <li>後續個人重新整理開發環境、重建資料表及排查問題</li>
                         </ul>
 
                         <div class="project-tags">
@@ -730,13 +835,18 @@
                         </div>
 
                         <div class="project-status">
-                            大學團隊專題・後續個人整理與修繕
+                            大學系統分析與實作小專題・團隊合作
                         </div>
-                    </article>
+
+                        <div class="project-status">
+                            後續個人整理與修繕
+                        </div>
+                    </a>
+
 
 
                     <!-- 心臟疾病預測系統 -->
-                    <article class="project-card">
+                    <a href="heart-disease.html" class="project-card">
                         <div class="project-number">PROJECT 03</div>
                         <h3>心臟疾病預測及預防管理系統</h3>
                         <img class="project-image" src="images/heart-disease/home.png" alt="心臟疾病預測及預防管理系統">
@@ -764,16 +874,16 @@
                         <div class="project-status">
                             大學專題實作
                         </div>
-                    </article>
+                    </a>
 
 
                     <!-- AI 音樂與影音創作 -->
+
                     <article class="project-card">
                         <div class="project-number">PROJECT 04</div>
                         <h3>AI 音樂與影音創作</h3>
 
                         <img class="project-image" src="images/ai-creation/home.png" alt="AI影音頻道實作">
-
 
                         <p>
                             運用生成式 AI 工具進行音樂創作與影音製作，
@@ -799,11 +909,16 @@
                             個人創作・持續更新
                         </div>
 
+                        <a href="ai-creation.html" class="project-link">
+                            查看專案詳情 →
+                        </a>
+
                         <a href="https://www.youtube.com/@Aivin-w3q" target="_blank" rel="noopener noreferrer"
                             class="project-link">
                             前往 YouTube 頻道 →
                         </a>
                     </article>
+
 
 
                 </div>

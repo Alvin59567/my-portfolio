@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alvin AI 音樂與影音創作作品集，展示 Suno AI 音樂生成、視覺素材製作及 YouTube 影音創作。">
+    <title>AI 音樂與影音創作｜Alvin Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Noto Sans TC", Arial, sans-serif;
+            background: #081525;
+            color: #e8edf5;
+            line-height: 1.8;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+
+        nav {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .logo {
+            color: #d9b56d;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .back-link {
+            color: #c5ccd8;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            color: #d9b56d;
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 100px 0 85px;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(82, 91, 130, 0.2), transparent 35%),
+                linear-gradient(135deg, #101f39, #081525);
+        }
+
+        .eyebrow {
+            color: #d9b56d;
+            font-size: 13px;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            line-height: 1.4;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            color: #d9b56d;
+        }
+
+        .hero-description {
+            max-width: 720px;
+            color: #aebaca;
+            font-size: 16px;
+            margin-bottom: 28px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            border: 1px solid rgba(217, 181, 109, 0.45);
+            color: #d9b56d;
+            padding: 5px 13px;
+            border-radius: 30px;
+            font-size: 12px;
+        }
+
+        /* Common Sections */
+
+        section {
+            padding: 75px 0;
+        }
+
+        .section-heading {
+            margin-bottom: 35px;
+        }
+
+        .section-heading p {
+            color: #d9b56d;
+            font-size: 12px;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .section-heading h2 {
+            font-size: 28px;
+            color: #f3f5f8;
+        }
+
+        .section-description {
+            color: #9eacbd;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        /* Channel */
+
+        .channel-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .channel-image {
+            background: #10233a;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .channel-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .channel-text h3 {
+            color: #d9b56d;
+            font-size: 21px;
+            margin-bottom: 15px;
+        }
+
+        .channel-text p {
+            color: #b5c0ce;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .youtube-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #d9b56d;
+            color: #081525;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .youtube-link:hover {
+            background: #f0cf91;
+            transform: translateY(-2px);
+        }
+
+        /* Video Section */
+
+        .video-section {
+            background: #0c1c30;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .video-card {
+            background: #10233a;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .video-card.featured {
+            grid-column: 1 / -1;
+        }
+
+        .video-card-header {
+            padding: 22px 24px 12px;
+        }
+
+        .video-label {
+            color: #d9b56d;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+
+        .video-card h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .video-card-header p {
+            color: #9eacbd;
+            font-size: 13px;
+        }
+
+        .video-wrapper {
+            width: 100%;
+            position: relative;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .video-wrapper.landscape {
+            aspect-ratio: 16 / 9;
+        }
+
+        .video-wrapper.portrait {
+            aspect-ratio: 9 / 16;
+            max-width: 380px;
+            margin: 0 auto 25px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-description {
+            padding: 0 24px 24px;
+            color: #b5c0ce;
+            font-size: 14px;
+        }
+
+        /* Creation Process */
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .process-card {
+            background: #10233a;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .process-number {
+            color: #d9b56d;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .process-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .process-card p {
+            color: #aebaca;
+            font-size: 14px;
+        }
+
+        /* Skills */
+
+        .skills-section {
+            background: #0c1c30;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            background: #152b45;
+            border: 1px solid rgba(217, 181, 109, 0.3);
+            color: #d9b56d;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 35px 0;
+            text-align: center;
+            color: #7f8da0;
+            font-size: 13px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-link {
+            display: inline-block;
+            margin-top: 12px;
+            color: #d9b56d;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 70px 0;
+            }
+
+            .channel-grid,
+            .video-grid,
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .video-card.featured {
+                grid-column: auto;
+            }
+
+            section {
+                padding: 55px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">ALVIN.</a>
+        <a href="index.html#projects" class="back-link">← 返回專案作品</a>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="container">
+            <p class="eyebrow">AI CREATION / CONTENT PRODUCTION</p>
+
+            <h1>
+                AI 音樂與<br>
+                <span>影音創作</span>
+            </h1>
+
+            <p class="hero-description">
+                從頻道定位、AI 音樂生成到視覺素材與影片整合，
+                自主規劃並嘗試運用 AI 工具完成不同形式的影音作品。
+            </p>
+
+            <div class="tags">
+                <span class="tag">Personal Project</span>
+                <span class="tag">Suno AI</span>
+                <span class="tag">AI Content</span>
+                <span class="tag">YouTube</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Channel Introduction -->
+    <section>
+        <div class="container">
+            <div class="section-heading">
+                <p>CHANNEL INTRODUCTION</p>
+                <h2>頻道介紹</h2>
+                <div class="section-description">
+                    從想法出發，建立自己的影音創作方向。
+                </div>
+            </div>
+
+            <div class="channel-grid">
+
+                <div class="channel-image">
+                    <img src="images/ai-creation/home.png"
+                        alt="AI 音樂創作 YouTube 頻道主頁">
+                </div>
+
+                <div class="channel-text">
+                    <h3>Midnight Cat Cafe</h3>
+
+                    <p>
+                        以 AI 音樂與視覺素材為基礎，
+                        嘗試打造具有一致風格的音樂影音內容。
+                    </p>
+
+                    <p>
+                        頻道以 LoFi 音樂為主要創作方向，
+                        從音樂生成、視覺規劃到影片整合，
+                        逐步完成可以公開分享的影音作品。
+                    </p>
+
+                    <a href="https://www.youtube.com/@Aivin-w3q"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="youtube-link">
+                        前往 YouTube 頻道 ↗
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Works -->
+    <section class="video-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <p>SELECTED WORKS</p>
+                <h2>影音作品展示</h2>
+                <div class="section-description">
+                    透過不同影片形式，呈現 AI 音樂與影音整合成果。
+                </div>
+            </div>
+
+            <div class="video-grid">
+
+                <!-- Long Video -->
+                <div class="video-card featured">
+
+                    <div class="video-card-header">
+                        <p class="video-label">LONG-FORM CONTENT</p>
+                        <h3>30 分鐘 LoFi 音樂影片</h3>
+                        <p>Midnight Cat Cafe｜Relaxing LoFi Music</p>
+                    </div>
+
+                    <div class="video-wrapper landscape">
+                        <iframe
+                            src="https://www.youtube.com/embed/_ettASVPykE"
+                            title="30 分鐘 LoFi 音樂影片"
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <div class="video-description">
+                        將 AI 生成的 LoFi 音樂與視覺素材整合，
+                        製作適合閱讀、工作與放鬆時聆聽的長影音內容。
+                    </div>
+
+                </div>
+
+                <!-- Shorts -->
+                <div class="video-card">
+
+                    <div class="video-card-header">
+                        <p class="video-label">SHORT-FORM CONTENT</p>
+                        <h3>Shorts 短影音代表作</h3>
+                        <p>頻道目前點擊率最高的 Shorts 作品</p>
+                    </div>
+
+                    <div class="video-wrapper portrait">
+                        <iframe
+                            src="https://www.youtube.com/embed/9PLu8x0Q3kc"
+                            title="YouTube Shorts 短影音代表作"
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <div class="video-description">
+                        透過短影音形式呈現創作內容，
+                        並觀察不同影片形式的觀看表現。
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Creation Process -->
+    <section>
+        <div class="container">
+
+            <div class="section-heading">
+                <p>CREATION PROCESS</p>
+                <h2>創作流程</h2>
+                <div class="section-description">
+                    從內容構想到影音成品，整合不同 AI 工具與創作環節。
+                </div>
+            </div>
+
+            <div class="process-grid">
+
+                <div class="process-card">
+                    <p class="process-number">STEP 01</p>
+                    <h3>內容規劃</h3>
+                    <p>
+                        規劃頻道定位、音樂風格與影片呈現方式，
+                        建立一致的內容方向。
+                    </p>
+                </div>
+
+                <div class="process-card">
+                    <p class="process-number">STEP 02</p>
+                    <h3>AI 音樂生成</h3>
+                    <p>
+                        使用 Suno AI 生成 LoFi 音樂，
+                        依照創作方向調整音樂內容。
+                    </p>
+                </div>
+
+                <div class="process-card">
+                    <p class="process-number">STEP 03</p>
+                    <h3>視覺素材製作</h3>
+                    <p>
+                        規劃影片視覺風格，
+                        製作符合頻道定位的畫面素材。
+                    </p>
+                </div>
+
+                <div class="process-card">
+                    <p class="process-number">STEP 04</p>
+                    <h3>影音整合</h3>
+                    <p>
+                        將音樂與視覺素材整合，
+                        完成短影音與長影音作品。
+                    </p>
+                </div>
+
+                <div class="process-card">
+                    <p class="process-number">STEP 05</p>
+                    <h3>頻道經營</h3>
+                    <p>
+                        將作品發布至 YouTube，
+                        持續累積內容並觀察影片表現。
+                    </p>
+                </div>
+
+                <div class="process-card">
+                    <p class="process-number">STEP 06</p>
+                    <h3>持續優化</h3>
+                    <p>
+                        透過實際發布成果觀察內容表現，
+                        作為後續創作與調整的參考。
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="skills-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <p>TOOLS & SKILLS</p>
+                <h2>使用工具與能力</h2>
+            </div>
+
+            <div class="skills-list">
+                <span class="skill">Suno AI</span>
+                <span class="skill">AI 音樂生成</span>
+                <span class="skill">AI 視覺素材</span>
+                <span class="skill">影音整合</span>
+                <span class="skill">YouTube 經營</span>
+                <span class="skill">內容企劃</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>ALVIN PORTFOLIO © 2026</p>
+            <a href="index.html#projects" class="footer-link">
+                ← 返回專案作品
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,443 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="系統分析與實作（SA）共享書籍平台團隊小專題介紹。">
+    <title>系統分析與實作 | Alvin Portfolio</title>
+
+    <style>
+        :root {
+            --bg: #0b1120;
+            --bg-light: #111b2e;
+            --card: #152238;
+            --gold: #d6b76c;
+            --gold-light: #f0d99c;
+            --white: #f8fafc;
+            --text: #b8c3d4;
+            --muted: #8190a5;
+            --border: rgba(214, 183, 108, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, "Microsoft JhengHei", sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            line-height: 1.8;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1000px, 90%);
+            margin: auto;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 17, 32, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            width: min(1000px, 90%);
+            margin: auto;
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .back-link {
+            color: var(--gold);
+            font-size: 14px;
+        }
+
+        .hero {
+            padding: 100px 0 80px;
+            background:
+                radial-gradient(circle at 85% 40%, rgba(214, 183, 108, 0.10), transparent 30%),
+                linear-gradient(135deg, #0b1120, #14243d);
+        }
+
+        .hero-label {
+            color: var(--gold);
+            letter-spacing: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: clamp(32px, 5vw, 52px);
+            line-height: 1.3;
+            margin: 15px 0;
+        }
+
+        h1 span {
+            color: var(--gold);
+        }
+
+        .hero-description {
+            max-width: 700px;
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        .project-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .project-info span,
+        .tag {
+            color: var(--gold-light);
+            background: rgba(214, 183, 108, 0.1);
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .section {
+            padding: 75px 0;
+        }
+
+        .section-alt {
+            background: var(--bg-light);
+        }
+
+        .section-heading {
+            margin-bottom: 30px;
+        }
+
+        .section-heading p {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 4px;
+            font-weight: bold;
+            margin: 0 0 8px;
+        }
+
+        .section-heading h2 {
+            font-size: 30px;
+            margin: 0;
+        }
+
+        .content {
+            color: var(--text);
+            max-width: 850px;
+        }
+
+        .content p {
+            margin-bottom: 18px;
+        }
+
+        .preview-image {
+            width: 100%;
+            max-height: 480px;
+            object-fit: contain;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 10px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .feature-card h3 {
+            color: var(--gold);
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+
+        .feature-card p {
+            color: var(--text);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .work-list {
+            padding-left: 22px;
+            color: var(--text);
+        }
+
+        .work-list li {
+            margin-bottom: 12px;
+        }
+
+        .notice {
+            margin-top: 25px;
+            padding: 20px;
+            background: var(--card);
+            border-left: 3px solid var(--gold);
+            color: var(--text);
+        }
+
+        .footer {
+            text-align: center;
+            color: var(--muted);
+            font-size: 12px;
+            padding: 30px 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 700px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 70px 0;
+            }
+
+            .section {
+                padding: 55px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">ALVIN<span>.</span></a>
+            <a href="index.html#projects" class="back-link">← 返回作品集</a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- 專案主視覺 -->
+        <section class="hero">
+            <div class="container">
+
+                <p class="hero-label">PROJECT 02 · SYSTEM ANALYSIS</p>
+
+                <h1>
+                    系統分析與實作<br>
+                    <span>Book Sharing Platform</span>
+                </h1>
+
+                <p class="hero-description">
+                    大學期間參與的團隊小專題，使用 PHP 與 MySQL
+                    開發共享書籍平台，提供會員管理、書籍瀏覽、
+                    書籍上架及借閱預約等功能。
+                </p>
+
+                <div class="project-info">
+                    <span>大學小專題</span>
+                    <span>團隊合作</span>
+                    <span>PHP</span>
+                    <span>MySQL</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 專案介紹 -->
+        <section class="section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p>PROJECT OVERVIEW</p>
+                    <h2>專案介紹</h2>
+                </div>
+
+                <div class="content">
+                    <p>
+                        本專案是大學期間「系統分析與實作」
+                        課程中的團隊小專題，主要目的是透過實際開發，
+                        將系統分析、資料庫設計與程式實作結合。
+                    </p>
+
+                    <p>
+                        團隊以共享書籍為主題，使用 PHP 與 MySQL
+                        建立網站平台，讓使用者能夠瀏覽書籍資訊、
+                        分享書籍及進行借閱預約。
+                    </p>
+
+                    <p>
+                        後續我重新整理這個專案，重新建立本機開發環境、
+                        重建資料表，並排查原有程式問題，
+                        讓自己重新熟悉 PHP 與資料庫的實際操作。
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 系統畫面 -->
+        <section class="section section-alt">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p>SYSTEM PREVIEW</p>
+                    <h2>系統畫面</h2>
+                </div>
+
+                <img
+                    class="preview-image"
+                    src="images/SA_Book-sharing/home.png"
+                    alt="系統分析與實作共享書籍平台首頁">
+
+            </div>
+        </section>
+
+        <!-- 主要功能 -->
+        <section class="section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p>CORE FEATURES</p>
+                    <h2>主要功能</h2>
+                </div>
+
+                <div class="feature-grid">
+
+                    <div class="feature-card">
+                        <h3>會員管理</h3>
+                        <p>
+                            提供會員帳號相關功能，
+                            作為使用平台服務的基礎。
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>書籍瀏覽</h3>
+                        <p>
+                            瀏覽平台上的書籍資訊，
+                            了解可分享的書籍內容。
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>書籍上架</h3>
+                        <p>
+                            提供書籍資料新增功能，
+                            讓使用者分享自己的書籍。
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>借閱預約</h3>
+                        <p>
+                            提供書籍借閱預約功能，
+                            串接相關資料操作流程。
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 使用技術 -->
+        <section class="section section-alt">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p>TECHNOLOGY</p>
+                    <h2>使用技術</h2>
+                </div>
+
+                <div class="tech-list">
+                    <span class="tag">PHP</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">XAMPP</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 個人後續整理 -->
+        <section class="section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p>MY PRACTICE</p>
+                    <h2>後續整理與實作</h2>
+                </div>
+
+                <div class="content">
+
+                    <p>
+                        大學專題結束後，我重新整理原本的程式，
+                        嘗試讓網站能夠在目前的本機環境重新運作。
+                        這個過程也讓我重新接觸過去學習的技術，
+                        並練習從錯誤訊息找出問題。
+                    </p>
+
+                    <ul class="work-list">
+                        <li>重新設定 PHP、MySQL 與 XAMPP 本機開發環境。</li>
+                        <li>依照原始程式重新建立資料表。</li>
+                        <li>排查 Session、資料查詢及預約流程中的問題。</li>
+                        <li>重新測試網站主要功能，確認操作流程。</li>
+                    </ul>
+
+                    <div class="notice">
+                        本專案原始開發為大學團隊小專題；
+                        上述環境重建、問題排查與後續測試，
+                        則為我個人重新整理及實作的部分。
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        © 2026 Alvin. All Rights Reserved.
+    </footer>
+
+</body>
+
+</html>

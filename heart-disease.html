@@ -1,0 +1,600 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="心臟疾病預測及預防管理系統，大學團隊專題，使用 R、Python 與機器學習演算法進行模型建置。">
+    <title>心臟疾病預測及預防管理系統｜Alvin Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Noto Sans TC", Arial, sans-serif;
+            background: #081525;
+            color: #e8edf5;
+            line-height: 1.8;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+
+        nav {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .logo {
+            color: #d9b56d;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .back-link {
+            color: #c5ccd8;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            color: #d9b56d;
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 100px 0 85px;
+            background: linear-gradient(135deg, #0d2037, #081525);
+        }
+
+        .eyebrow {
+            color: #d9b56d;
+            font-size: 13px;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 5vw, 46px);
+            line-height: 1.4;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            color: #d9b56d;
+        }
+
+        .hero-description {
+            max-width: 720px;
+            color: #aebaca;
+            font-size: 16px;
+            margin-bottom: 28px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            border: 1px solid rgba(217, 181, 109, 0.45);
+            color: #d9b56d;
+            padding: 5px 13px;
+            border-radius: 30px;
+            font-size: 12px;
+        }
+
+        /* Common Sections */
+
+        section {
+            padding: 75px 0;
+        }
+
+        .section-heading {
+            margin-bottom: 35px;
+        }
+
+        .section-heading p {
+            color: #d9b56d;
+            font-size: 12px;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .section-heading h2 {
+            font-size: 28px;
+            color: #f3f5f8;
+        }
+
+        .section-description {
+            color: #9eacbd;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        /* Project Introduction */
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 35px;
+            align-items: start;
+        }
+
+        .intro-text {
+            color: #b5c0ce;
+            font-size: 15px;
+        }
+
+        .intro-text p {
+            margin-bottom: 16px;
+        }
+
+        .info-card {
+            background: #10233a;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .info-card h3 {
+            color: #d9b56d;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        .info-item {
+            padding: 11px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 14px;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-item span {
+            display: block;
+            color: #8494a8;
+            font-size: 12px;
+        }
+
+        /* Contribution */
+
+        .contribution-section {
+            background: #0c1c30;
+        }
+
+        .contribution-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .contribution-card {
+            padding: 25px;
+            background: #11263e;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 12px;
+        }
+
+        .contribution-card h3 {
+            color: #d9b56d;
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .contribution-card p {
+            color: #aebaca;
+            font-size: 14px;
+        }
+
+        /* Technology */
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .tech-card {
+            background: #10233a;
+            padding: 22px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .tech-card h3 {
+            color: #d9b56d;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        .tech-card p {
+            color: #b5c0ce;
+            font-size: 14px;
+        }
+
+        /* Gallery */
+
+        .gallery-section {
+            background: #0c1c30;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .gallery-item {
+            background: #10233a;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .gallery-item img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            background: #ffffff;
+        }
+
+        .gallery-caption {
+            padding: 18px 20px;
+        }
+
+        .gallery-caption h3 {
+            color: #d9b56d;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .gallery-caption p {
+            color: #aebaca;
+            font-size: 13px;
+        }
+
+        .gallery-item.featured {
+            grid-column: 1 / -1;
+        }
+
+        .gallery-item.featured img {
+            max-height: 600px;
+            object-fit: contain;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 35px 0;
+            text-align: center;
+            color: #7f8da0;
+            font-size: 13px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-link {
+            display: inline-block;
+            margin-top: 12px;
+            color: #d9b56d;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 768px) {
+            nav {
+                gap: 15px;
+            }
+
+            .hero {
+                padding: 70px 0;
+            }
+
+            .intro-grid,
+            .contribution-grid,
+            .tech-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item.featured {
+                grid-column: auto;
+            }
+
+            section {
+                padding: 55px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">ALVIN.</a>
+        <a href="index.html#projects" class="back-link">← 返回專案作品</a>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="container">
+            <p class="eyebrow">TEAM PROJECT / MACHINE LEARNING</p>
+
+            <h1>
+                心臟疾病預測及<br>
+                <span>預防管理系統</span>
+            </h1>
+
+            <p class="hero-description">
+                以心血管疾病相關資料為基礎，結合機器學習演算法進行模型建置，
+                並整合前端介面，讓使用者能夠輸入資料並了解相關預測資訊。
+            </p>
+
+            <div class="tags">
+                <span class="tag">大學團隊專題</span>
+                <span class="tag">專題組長</span>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">R / Python</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Introduction -->
+    <section>
+        <div class="container">
+            <div class="section-heading">
+                <p>OVERVIEW</p>
+                <h2>專案介紹</h2>
+                <div class="section-description">
+                    從資料分析、模型建置到系統整合的團隊專題實作。
+                </div>
+            </div>
+
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <p>
+                        本專題以心臟疾病預測及預防管理為主題，
+                        希望透過資料分析與機器學習方法，
+                        建立能夠提供使用者參考的預測系統。
+                    </p>
+
+                    <p>
+                        系統包含使用者資料輸入、演算法介紹、
+                        心血管疾病相關資訊，以及不同模型的驗算示意，
+                        將資料分析與前端介面結合。
+                    </p>
+
+                    <p>
+                        專題期間我擔任團隊組長，除了參與 R 語言與 Python
+                        的模型建置，也負責團隊工作分配與進度協調，
+                        並參與部分前端製作及 JavaScript 串接。
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>PROJECT INFORMATION</h3>
+
+                    <div class="info-item">
+                        <span>專案類型</span>
+                        大學團隊專題
+                    </div>
+
+                    <div class="info-item">
+                        <span>擔任角色</span>
+                        專題組長
+                    </div>
+
+                    <div class="info-item">
+                        <span>主要負責</span>
+                        資料分析與機器學習建模
+                    </div>
+
+                    <div class="info-item">
+                        <span>開發技術</span>
+                        R、Python、Vue.js、JavaScript
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Contribution -->
+    <section class="contribution-section">
+        <div class="container">
+            <div class="section-heading">
+                <p>MY CONTRIBUTION</p>
+                <h2>我的參與與負責內容</h2>
+                <div class="section-description">
+                    除了技術實作，也負責團隊溝通與工作協調。
+                </div>
+            </div>
+
+            <div class="contribution-grid">
+
+                <div class="contribution-card">
+                    <h3>01｜團隊管理與分工</h3>
+                    <p>
+                        擔任專題組長，參與團隊工作分配、
+                        開發進度協調及任務整合，
+                        與組員共同討論系統規劃與執行方向。
+                    </p>
+                </div>
+
+                <div class="contribution-card">
+                    <h3>02｜機器學習模型建置</h3>
+                    <p>
+                        使用 R 語言與 Python 進行資料分析及模型建置，
+                        接觸 ID3、SVM、KNN 等機器學習演算法。
+                    </p>
+                </div>
+
+                <div class="contribution-card">
+                    <h3>03｜前端介面製作</h3>
+                    <p>
+                        參與部分前端介面製作，
+                        協助將系統功能與使用者操作畫面整合。
+                    </p>
+                </div>
+
+                <div class="contribution-card">
+                    <h3>04｜JavaScript 串接</h3>
+                    <p>
+                        參與 JavaScript 程式串接，
+                        協助前端功能與系統內容整合。
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology -->
+    <section>
+        <div class="container">
+            <div class="section-heading">
+                <p>TECHNOLOGY</p>
+                <h2>使用技術</h2>
+                <div class="section-description">
+                    專題開發過程中接觸的程式語言與技術。
+                </div>
+            </div>
+
+            <div class="tech-grid">
+
+                <div class="tech-card">
+                    <h3>R Language</h3>
+                    <p>資料分析與機器學習模型建置。</p>
+                </div>
+
+                <div class="tech-card">
+                    <h3>Python</h3>
+                    <p>資料處理與機器學習模型建置。</p>
+                </div>
+
+                <div class="tech-card">
+                    <h3>Machine Learning</h3>
+                    <p>ID3、SVM、KNN 演算法。</p>
+                </div>
+
+                <div class="tech-card">
+                    <h3>Vue.js</h3>
+                    <p>參與前端介面製作。</p>
+                </div>
+
+                <div class="tech-card">
+                    <h3>JavaScript</h3>
+                    <p>參與前端程式串接。</p>
+                </div>
+
+                <div class="tech-card">
+                    <h3>Team Collaboration</h3>
+                    <p>團隊分工、進度協調與系統規劃討論。</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- System Gallery -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-heading">
+                <p>SYSTEM GALLERY</p>
+                <h2>系統畫面展示</h2>
+                <div class="section-description">
+                    以下展示專題系統的主要介面與功能。
+                </div>
+            </div>
+
+            <div class="gallery-grid">
+
+                <div class="gallery-item featured">
+                    <img src="images/heart-disease/home.png"
+                        alt="心臟疾病預測及預防管理系統首頁">
+                    <div class="gallery-caption">
+                        <h3>01｜系統首頁</h3>
+                        <p>系統整體入口與主要功能介紹。</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/heart-disease/form.png"
+                        alt="使用者資料填寫畫面">
+                    <div class="gallery-caption">
+                        <h3>02｜使用者資料輸入</h3>
+                        <p>提供使用者填寫相關資料，作為系統預測的輸入。</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/heart-disease/method.png"
+                        alt="機器學習演算法介紹畫面">
+                    <div class="gallery-caption">
+                        <h3>03｜演算法介紹</h3>
+                        <p>介紹系統使用的機器學習演算法。</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/heart-disease/demo.png"
+                        alt="不同機器學習模型驗算示意畫面">
+                    <div class="gallery-caption">
+                        <h3>04｜模型驗算示意</h3>
+                        <p>展示不同模型的驗算內容與結果。</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/heart-disease/introduce.png"
+                        alt="心血管疾病介紹畫面">
+                    <div class="gallery-caption">
+                        <h3>05｜心血管疾病介紹</h3>
+                        <p>提供心血管疾病相關知識與資訊。</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>ALVIN PORTFOLIO © 2026</p>
+            <a href="index.html#projects" class="footer-link">
+                ← 返回專案作品
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>
