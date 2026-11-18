@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="系統分析與實作（SA）共享書籍平台團隊小專題介紹。">
+    <meta name="description" content="系統分析與實作（SA）共享書籍平台團隊專題，包含 PHP、MySQL 開發、資料庫重建、問題排查及 AI 輔助開發經驗。">
     <title>系統分析與實作 | Alvin Portfolio</title>
 
     <style>
@@ -216,6 +216,96 @@
             color: var(--text);
         }
 
+        /* 問題排查區塊 */
+        .problem-list {
+            display: grid;
+            gap: 18px;
+        }
+
+        .problem-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .problem-number {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .problem-card h3 {
+            margin: 8px 0 12px;
+            font-size: 18px;
+            color: var(--white);
+        }
+
+        .problem-card p {
+            color: var(--text);
+            font-size: 14px;
+            margin: 0 0 10px;
+        }
+
+        .solution {
+            border-top: 1px solid var(--border);
+            margin-top: 15px;
+            padding-top: 15px;
+        }
+
+        .solution strong {
+            color: var(--gold-light);
+        }
+
+        /* AI 開發流程 */
+        .ai-intro {
+            color: var(--text);
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .ai-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 22px 18px;
+        }
+
+        .ai-step {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .ai-card h3 {
+            font-size: 16px;
+            margin: 12px 0 8px;
+        }
+
+        .ai-card p {
+            color: var(--text);
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .ai-note {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(214, 183, 108, 0.07);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 14px;
+        }
+
         .footer {
             text-align: center;
             color: var(--muted);
@@ -229,12 +319,22 @@
                 grid-template-columns: 1fr;
             }
 
+            .ai-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .hero {
                 padding: 70px 0;
             }
 
             .section {
                 padding: 55px 0;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .ai-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -264,15 +364,17 @@
 
                 <p class="hero-description">
                     大學期間參與的團隊小專題，使用 PHP 與 MySQL
-                    開發共享書籍平台，提供會員管理、書籍瀏覽、
-                    書籍上架及借閱預約等功能。
+                    開發共享書籍平台。畢業後重新整理舊專案，
+                    從環境重建、程式排查到功能測試，
+                    重新熟悉既有系統的運作方式。
                 </p>
 
                 <div class="project-info">
-                    <span>大學小專題</span>
-                    <span>團隊合作</span>
+                    <span>大學團隊專題</span>
+                    <span>後續個人整理</span>
                     <span>PHP</span>
                     <span>MySQL</span>
+                    <span>AI 輔助開發</span>
                 </div>
 
             </div>
@@ -289,21 +391,22 @@
 
                 <div class="content">
                     <p>
-                        本專案是大學期間「系統分析與實作」
-                        課程中的團隊小專題，主要目的是透過實際開發，
+                        本專案是大學期間「系統分析與實作（SA）」
+                        課程中的團隊小專題，透過實際開發，
                         將系統分析、資料庫設計與程式實作結合。
                     </p>
 
                     <p>
                         團隊以共享書籍為主題，使用 PHP 與 MySQL
-                        建立網站平台，讓使用者能夠瀏覽書籍資訊、
-                        分享書籍及進行借閱預約。
+                        建立網站平台，提供會員管理、書籍瀏覽、
+                        書籍上架及借閱預約等功能。
                     </p>
 
                     <p>
                         後續我重新整理這個專案，重新建立本機開發環境、
-                        重建資料表，並排查原有程式問題，
-                        讓自己重新熟悉 PHP 與資料庫的實際操作。
+                        重建資料表，並排查原有程式問題。
+                        這個過程讓我重新熟悉 PHP、MySQL，
+                        也練習從既有程式碼理解系統架構與解決問題。
                     </p>
                 </div>
 
@@ -391,6 +494,149 @@
                     <span class="tag">CSS</span>
                     <span class="tag">JavaScript</span>
                     <span class="tag">XAMPP</span>
+                    <span class="tag">ChatGPT</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 問題排查與解決 -->
+        <section class="section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p>PROBLEM SOLVING</p>
+                    <h2>問題排查與解決過程</h2>
+                </div>
+
+                <div class="content">
+                    <p>
+                        重新整理舊專案時，並不是單純重新開啟網站，
+                        而是需要重新理解原本的程式結構，
+                        找出環境、資料庫及程式執行上的問題。
+                    </p>
+                </div>
+
+                <div class="problem-list">
+
+                    <div class="problem-card">
+                        <div class="problem-number">CHALLENGE 01</div>
+                        <h3>重新建立資料庫環境</h3>
+                        <p>
+                            原本的資料庫環境無法直接使用，
+                            需要重新確認系統所需的資料表及欄位。
+                        </p>
+                        <div class="solution">
+                            <strong>處理方式</strong>
+                            <p>
+                                透過檢查 PHP 程式中的 SQL 語法及資料庫操作，
+                                整理資料表需求，再使用 XAMPP 與 MySQL
+                                重新建立本機資料庫。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="problem-card">
+                        <div class="problem-number">CHALLENGE 02</div>
+                        <h3>Session 與登入流程錯誤</h3>
+                        <p>
+                            網站執行時出現 Session 相關錯誤，
+                            造成部分頁面無法正常取得使用者資訊。
+                        </p>
+                        <div class="solution">
+                            <strong>處理方式</strong>
+                            <p>
+                                檢查 Session 的使用位置、
+                                登入流程及相關 PHP 程式，
+                                理解錯誤發生原因後調整程式並重新測試。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="problem-card">
+                        <div class="problem-number">CHALLENGE 03</div>
+                        <h3>修復後的功能驗證</h3>
+                        <p>
+                            網站能夠開啟不代表所有功能都正常，
+                            仍需要確認各項操作與資料流程。
+                        </p>
+                        <div class="solution">
+                            <strong>處理方式</strong>
+                            <p>
+                                逐項測試登入、書籍瀏覽、圖片顯示
+                                及借閱預約等功能，檢查操作結果，
+                                確認主要流程能正常執行。
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- AI 輔助開發 -->
+        <section class="section section-alt">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p>AI-ASSISTED DEVELOPMENT</p>
+                    <h2>AI 輔助開發流程</h2>
+                </div>
+
+                <p class="ai-intro">
+                    在重新整理專案的過程中，我使用 ChatGPT
+                    輔助理解既有程式碼及分析錯誤原因。
+                    透過先理解問題、再自行修改程式，
+                    最後回到本機環境執行測試的方式，
+                    將 AI 工具融入實際開發流程。
+                </p>
+
+                <div class="ai-grid">
+
+                    <div class="ai-card">
+                        <div class="ai-step">STEP 01</div>
+                        <h3>問題分析</h3>
+                        <p>
+                            確認錯誤訊息與發生情境，
+                            找出需要檢查的程式區域。
+                        </p>
+                    </div>
+
+                    <div class="ai-card">
+                        <div class="ai-step">STEP 02</div>
+                        <h3>AI 協助理解</h3>
+                        <p>
+                            使用 ChatGPT 解釋程式碼、
+                            分析錯誤原因及可能的處理方式。
+                        </p>
+                    </div>
+
+                    <div class="ai-card">
+                        <div class="ai-step">STEP 03</div>
+                        <h3>理解後自行修改</h3>
+                        <p>
+                            依照理解結果調整程式碼，
+                            並將修改內容整合至原有專案。
+                        </p>
+                    </div>
+
+                    <div class="ai-card">
+                        <div class="ai-step">STEP 04</div>
+                        <h3>實際執行驗證</h3>
+                        <p>
+                            在 XAMPP 本機環境執行程式，
+                            透過測試確認修改結果。
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="ai-note">
+                    <strong>我的使用方式：</strong>
+                    將 ChatGPT 作為程式理解與問題分析的輔助工具，
+                    不直接依賴 AI 產生的結果，
+                    而是先理解修改原因，再自行調整並實際測試。
                 </div>
 
             </div>
@@ -402,29 +648,30 @@
 
                 <div class="section-heading">
                     <p>MY PRACTICE</p>
-                    <h2>後續整理與實作</h2>
+                    <h2>後續整理與學習收穫</h2>
                 </div>
 
                 <div class="content">
 
                     <p>
-                        大學專題結束後，我重新整理原本的程式，
-                        嘗試讓網站能夠在目前的本機環境重新運作。
-                        這個過程也讓我重新接觸過去學習的技術，
-                        並練習從錯誤訊息找出問題。
+                        透過重新整理這個專案，
+                        我重新接觸 PHP 與 MySQL 的實際應用，
+                        也從原本只熟悉課堂開發流程，
+                        進一步練習接手既有程式、分析錯誤及恢復系統功能。
                     </p>
 
                     <ul class="work-list">
                         <li>重新設定 PHP、MySQL 與 XAMPP 本機開發環境。</li>
-                        <li>依照原始程式重新建立資料表。</li>
+                        <li>依照原始程式重新整理並建立資料表。</li>
                         <li>排查 Session、資料查詢及預約流程中的問題。</li>
-                        <li>重新測試網站主要功能，確認操作流程。</li>
+                        <li>運用 ChatGPT 輔助理解程式與分析錯誤。</li>
+                        <li>透過實際執行及功能測試確認修改結果。</li>
                     </ul>
 
                     <div class="notice">
                         本專案原始開發為大學團隊小專題；
-                        上述環境重建、問題排查與後續測試，
-                        則為我個人重新整理及實作的部分。
+                        上述環境重建、問題排查、AI 輔助及後續測試，
+                        則為我個人重新整理與實作的部分。
                     </div>
 
                 </div>
